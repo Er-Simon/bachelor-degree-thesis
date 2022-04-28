@@ -1,0 +1,41 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {chapter}{\numberline {1}L’importanza di SQLite nell’informatica forense}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Il motore di database più utilizzato al mondo}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Quanto è importante recuperare i dati?}{1}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Introduzione a SQLite}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Cos’è SQLite?}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Caratteristiche principali}{2}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Confronto con i motori SQL dotati di server}{3}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Il formato dei database file}{4}{chapter.3}%
+\contentsline {section}{\numberline {3.1}I file Hot Journals}{4}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Pagine}{4}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Header del database}{5}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Freelist}{6}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Le pagine di tipo b-tree}{6}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Struttura}{7}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Il formato dell’header}{8}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Freeblock}{8}{subsection.3.5.3}%
+\contentsline {section}{\numberline {3.6}Tipi di dati}{9}{section.3.6}%
+\contentsline {paragraph}{Il tipo di dato varint}{9}{section*.5}%
+\contentsline {paragraph}{I codici serial types}{9}{section*.6}%
+\contentsline {section}{\numberline {3.7}Il formato dei record}{10}{section.3.7}%
+\contentsline {paragraph}{Payload}{10}{section*.9}%
+\contentsline {paragraph}{Esempio}{11}{section*.11}%
+\contentsline {chapter}{\numberline {4}Risorse utili al recupero dei record cancellati}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Le freelist}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}I freeblock e l'area non allocata}{14}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Contrastare il recupero dei dati}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Le direttive}{15}{section.5.1}%
+\contentsline {paragraph}{auto vacuum}{15}{section*.14}%
+\contentsline {paragraph}{secure delete}{15}{section*.15}%
+\contentsline {section}{\numberline {5.2}Il comando vacuum}{15}{section.5.2}%
+\contentsline {chapter}{\numberline {6}SQLite Recovery}{16}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Ambiente di testing}{16}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Patterns}{17}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Risultati ottenuti}{17}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Implementazione}{18}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Interfaccia}{20}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Conclusioni}{22}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Sviluppi futuri di SQLite Recovery}{22}{section.7.1}%
+\contentsline {chapter}{Bibliografia}{24}{chapter*.19}%

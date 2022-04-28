@@ -1,0 +1,147 @@
+\documentclass[Lau, oneside, noexaminfo]{sapthesis}
+\usepackage[utf8]{inputenx}
+\usepackage{indentfirst}
+\usepackage{microtype}
+\usepackage[italian]{babel}
+%\usepackage{chemformula}
+%\usepackage{setspace}
+%\usepackage{yfonts,color}
+%\usepackage{siunitx}
+%\usepackage{comment}
+%\usepackage{multirow}
+%\usepackage{varioref}
+%\usepackage[bottom]{footmisc}
+%\usepackage{wrapfig}
+%\usepackage{float}
+%\usepackage{type1cm}
+\usepackage{lettrine}
+\linespread{0.9}
+%\usepackage{chngcntr}
+\usepackage[nottoc, notlof, notlot]{tocbibind}
+%\onehalfspacing
+%\counterwithout{footnote}{chapter}
+\usepackage{hyperref}
+
+\hypersetup{
+	%hyperfootnotes=true,			
+	%bookmarks=true,			
+	colorlinks=true,
+	linkcolor=black,
+	linktoc=page,
+	anchorcolor=black,
+	citecolor=black,
+	urlcolor=blue,
+	pdftitle={Recupero dati da SQLite per attività forensi},
+	pdfauthor={Simone Ruberto},
+	pdfkeywords={relazione di tirocinio, tesina, tirocinio interno, sapienza, roma, informatica, università}
+}
+
+\title{Recupero dati da SQLite per attività forensi}
+\author{Simone Ruberto}
+\IDnumber{1845772}
+\course[]{Informatica}
+
+\courseorganizer{Facolt\`a di Ingegneria dell'informazione, informatica e statistica}
+\submitdate{2021/2022}
+\copyyear{2022}
+\advisor{Prof. Angelo Spognardi}
+\advisor{Prof. Marco Cianfriglia}
+\coadvisor{Prof. Massimo Bernaschi}
+\authoremail{ruberto.1845772@studenti.uniroma1.it}
+
+
+
+%we refer to http://ctan.mirrorcatalogs.com/macros/latex/contrib/sapthesis/sapthesis-doc.pdf for an exhaustive description of the sapthesis documentclass.
+
+\newcommand{\SubItem}[1]{
+	{\setlength\itemindent{15pt} \item[-] #1}
+}
+
+\begin{document}
+	
+	
+	\frontmatter
+	\maketitle
+	
+	\input{chapters/sommario.tex}
+	
+	\newpage\null\thispagestyle{empty}\newpage
+
+	\tableofcontents
+	
+	\newpage\null\thispagestyle{empty}\newpage
+	
+	\mainmatter
+	
+	\input{chapters/importanza.tex}
+	
+	\input{chapters/introduzione.tex}
+	
+	\input{chapters/formato.tex}
+	
+	\input{chapters/risorse.tex}
+	
+	\input{chapters/dati.tex}
+	
+	\input{chapters/recovery.tex}
+	
+	\input{chapters/conclusioni.tex}
+
+	
+	\newpage\null\thispagestyle{empty}\newpage
+
+	\backmatter
+	\phantomsection
+	\begin{thebibliography}{17}
+		
+		%\bibitem{sqlite:mostdeployed}
+		%\textbf{Most Widely Deployed SQL Database Engine}. %\url{https://www.sqlite.org/mostdeployed.html}
+		
+		\bibitem{clanguage}
+			\textbf{C programming language}.
+			\url{http://www.open-std.org/jtc1/sc22/wg14/}
+			
+		\bibitem{cstandardlibrary}
+			\textbf{C standard library}. \\
+			Wikipedia contributors,
+			\url{https://en.wikipedia.org/wiki/C_standard_library}
+		
+		\bibitem{acid}
+			\textbf{ACID (atomicity, consistency, isolation, durability)}. \\
+			Wikipedia contributors,
+			\url{https://en.wikipedia.org/wiki/ACID}
+		
+		\bibitem{uslibraryofcongress}
+			\textbf{LoC Recommended Storage Format}. (21-08-2020) \\
+			\url{https://www.loc.gov/preservation/digital/formats/fdd/fdd000461.shtml#local}
+
+		\bibitem{dbms}
+			\textbf{Database management system}. \\
+			Wikipedia contributors, \url{https://it.wikipedia.org/wiki/Database_management_system}
+			
+		\bibitem{varint}
+			\textbf{Variable-Length Integers}. \\
+			SQLite Developers, 
+			\url{https://sqlite.org/src4/doc/trunk/www/varint.wiki}
+			
+		\bibitem{fqlite}
+			\textbf{FQlite - Forensic SQLite Data Recovery Tool}. \\
+			Dirk Pawlaszczyk, 
+			\url{https://www.staff.hs-mittweida.de/~pawlaszc/fqlite/}
+		
+		\bibitem{jquery}
+			\textbf{jQuery API Documentation}. \\
+			 OpenJS Foundation, jQuery contributors, 
+			\url{https://api.jquery.com/}
+		
+		\bibitem{bootstrapgridsystem}
+			\textbf{Bootstrap - Grid system}. \\
+			Bootstrap Team, 
+			\url{https://getbootstrap.com/docs/4.0/layout/grid/}
+		
+			
+	\end{thebibliography}
+	
+	
+	
+\end{document}
