@@ -1,0 +1,49 @@
+% !TeX root = ../relazione.tex
+
+\chapter{Introduzione a SQLite}
+
+
+\section{Cos’è SQLite?}
+SQLite è una libreria software scritta nel linguaggio di programmazione C \cite{clanguage}, che implementa un \textbf{motore di database SQL}, ideata da D. Richard Hipp, ma attualmente gestita da un team di sviluppatori.
+
+Il progetto SQLite è iniziato il 29/05/2000 e il team ha come obiettivo di supportarne lo sviluppo fino al 2050\footnote{Dati provenienti dal sito di SQLite: \url{https://www.sqlite.org/}}.
+La documentazione e il codice di SQLite sono di dominio pubblico, il codice di SQLite non è Open-Contribution. 
+
+\begin{figure}[ht]
+	\centering
+	\caption{Logo di SQLite}
+	\label{fig:sqlitelogo}
+	\includegraphics[scale=0.5]{assets/logo_sqlite}
+\end{figure}
+
+\section{Caratteristiche principali}
+L’implementazione del motore del database è;
+\begin{itemize}
+	\item \textbf{Self-contained}: ha bisogno di pochissime dipendenze per funzionare, infatti, non richiede l’utilizzo di librerie esterne del linguaggio C, ma si limita a utilizzare le routines della libreria standard \cite{cstandardlibrary}
+	\item \textbf{Serverless}: il processo che vuole accedere al database scrive e legge direttamente dal file del database sul disco, a differenza di molti altri motori di database SQL, nei quali c’è la necessità di utilizzare un processo ad-hoc
+	\item \textbf{Zero-configuration}: SQLite non richiede di essere installato prima dell’utilizzo
+	\item \textbf{Transactional}: le transazioni soddisfano le proprietà ACID (Atomicità, Consistenza, Isolamento e Durabilità) \cite{acid}
+\end{itemize}
+Nonostante il nome possa ingannare SQLite implementa tutte le funzioni di SQL, il “Lite” presente nel nome si riferisce alla ridotta grandezza del file.
+
+SQLite viene testato molto attentamente prima di ogni rilascio ed è molto affidabile, in quanto è utilizzato da miliardi di dispositivi di tutti i tipi senza problemi da ormai quasi due decenni. 
+
+Prima di ogni nuovo rilascio, SQLite viene testato tramite una suite di test automatizzata che esegue milioni e milioni di casi di test che coinvolgono centinaia di milioni di istruzioni SQL, al fine di provare tutti i casi di fallimento.
+SQLite ha un’ alta tolleranza ai fallimenti di allocazione della memoria e agli errori di I/O del disco. Le transazioni sono ACID, infatti, anche se interrotte da crash di sistema o interruzioni di corrente, il database rimane in uno stato consistente.
+Nonostante tutti i test, anche SQLite presenta dei bug, ma a differenza di altre tecnologie simili il team di sviluppo si impegna a fornire elenchi di bug noti e un changelog sulle modifiche del codice aggiornato al minuto.
+
+\section{Confronto con i motori SQL dotati di server}
+Si potrebbe pensare di poter paragonare SQLite ai DBMS \cite{dbms} dotati di server, ma sarebbe sbagliato, in quanto sono concepiti con due scopi differenti. SQLite non compete con MySQL, PostgreSQL o software simili. SQLite nasce con lo scopo di permettere a un programma di poter operare con un database senza dover essere costretto a installare un DBMS o di dover disporre di grandi capacità di memoria.
+
+\medskip
+SQLite non è adatto nelle seguenti situazioni;
+\begin{itemize}
+
+\item Se si deve permettere l'accesso alla base di dati tramite la rete internet
+\item Se è necessario garantire un alto grado di concorrenza, ovvero, se dovessero essere eseguite in uno stesso istante differenti query
+\item Se è richiesto un elevato utilizzo della memoria.
+\end{itemize}
+
+SQLite è particolarmente indicato nei casi in cui l'archiviazione dei dati avviene localmente nel dispositivo, la quantità dei dati non supera un terabyte di contenuto e non vengono effettuate molte operazioni nello stesso istante. 
+
+SQLite è veloce e affidabile, non richiede configurazioni particolari o attività di manutenzione. 

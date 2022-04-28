@@ -1,1 +1,26 @@
 
+\chapter{Contrastare il recupero dei dati}
+SQLite per evitare che i dati rimossi possano essere recuperati, mette a disposizione una serie di direttive e di comandi che permettono in diverse modalità la sovrascrittura dei dati rimossi. Queste direttive di default sono disattivate. 
+ 	
+\section{Le direttive}
+\paragraph{auto vacuum}
+Quando non è attiva, all'eliminazione dei dati dal database, la grandezza del file principale rimane invariata, le pagine inattive verranno aggiunte alla freelist e riutilizzate all'occorrenza.
+Questa direttiva può operare in 3 modalità;
+
+\begin{itemize}
+\item 0 è lo stato di default, ovvero la direttiva risulta essere disattivata
+\item 1 le pagine inattive verranno spostate alla fine del file e la dimensione verrà troncata ad ogni commit di una transazione
+\item 2 a differenza dello stato precedente, l'operazione descritta avverrà ad ogni invocazione della direttiva incremental vacuum
+\end{itemize}
+
+
+Bisogna notare che questa direttiva non evita la frammentazione dell'area contenente le celle nelle pagine (i freeblock).
+
+\paragraph{secure delete}
+Quando abilitata, questa direttiva, all'occorrenza dell'eliminazione dei dati provvederà a sovrascrivere il contenuto con degli 0. Questa operazione ha un forte impatto sulle performance, ma consente di non lasciare tracce quando un contenuto viene rimosso o modificato.
+
+Oltre ad essere abilitata supporta un ulteriore modalità chiamata fast, la quale consiste in una via di mezzo tra essere abilitata e disabilitata. Più nello specifico fa sì che venga sovrascritto il contenuto se e solo se non aumenta la quantità di operazioni di input/output, a discapitato di un maggior numero di cicli della CPU. In questa modalità verranno lasciate delle tracce nella pagine presenti nella freelist.
+
+\section{Il comando vacuum}
+Questo comando permette la ricostruzione del database nello spazio minimo richiesto. All'esecuzione verranno rimosse le pagine inattive presenti nella freelist, verranno rimossi i freeblock dall'interno dell'area contenente le celle delle pagine e verranno sovrascritte tutte quelle aree marcate come eliminate disponibili per il riuso.
+

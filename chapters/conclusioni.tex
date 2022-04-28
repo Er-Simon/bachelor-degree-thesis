@@ -1,0 +1,31 @@
+% !TeX root = ../relazione.tex
+
+\chapter{Conclusioni}
+In questa relazione è stato descritto il lavoro svolto durante l’attività di tirocinio.
+
+È stata illustrata una breve panoramica sulla tecnologia SQLite, sul suo utilizzo e sull'importanza che possono avere i dati contenuti all'interno dei file SQLite.
+Sono state riportate le caratteristiche principali alla base di questa tecnologia e si è cercato di fare un confronto con i motori SQL relazionali tradizionali.
+Inoltre, sono stati illustrati i componenti principali per comprendere al meglio il formato dei file di tipo SQLite ed è stato mostrato il processo di recupero dei record a partire da valori esadecimali.
+Sono state spiegate le risorse utili al recupero dei record, le direttive e i comandi per evitare che i dati possano essere recuperati.
+È stato presentato SQLite Recovery, uno script in grado di automatizzare il processo di recupero dei record da file SQLite e i suoi sviluppi futuri. 
+
+\medskip
+
+Durante il tirocinio ho avuto modo di applicare alcuni dei concetti appresi nei
+vari corsi di studio. Ho avuto inoltre l’opportunità di approfondire e imparare alcune tecnologie e approcci, migliorando la mia conoscenza ed esperienza di programmazione.
+Ho avuto modo di comprendere la tecnologia SQLite, la sua importanza nelle attività forensi e il suo utilizzo su larga scala.
+
+
+
+\section{Sviluppi futuri di SQLite Recovery}
+SQLite attualmente supporta le seguenti funzioni;
+
+\begin{itemize}
+	\item recuperare i record o i frammenti dallo spazio non allocato delle pagine foglie di tipo tabella
+	\item recuperare i record dai freeblocks presenti nelle pagine foglie di tipo tabelle
+	\item supporta le diverse codifiche utilizzate da SQLite per immagazzinare le stringe (UTF-8, UTF-16BE, UTF-16LE)
+	\item salvare i bytes delle aree non allocate e dei freeblocks su un file tsv
+	\item visualizzare i dati ottenuti tramite una interfaccia
+\end{itemize}	
+	
+In futuro questo script potrebbe essere ampliato andando a implementare ulteriori funzioni come: dare la possibilità di recuperare i record dalle pagine presenti nella freelist, recuperare i record delle tabelle eliminate, aumentare le informazioni riportate all’interno dell’interfaccia e dare la possibilità di ripristinare i file SQLite corrotti.

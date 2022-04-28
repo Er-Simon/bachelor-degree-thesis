@@ -1,0 +1,40 @@
+% !TeX root = ../relazione.tex
+
+
+
+\chapter{Risorse utili al recupero dei record cancellati}
+Quando viene rimosso un record o quando viene eseguita un'operazione di drop su una tabella, in SQLite almeno che non siano attivate particolari direttive, oppure non sia stato eseguito il comando vacuum, il contenuto rimosso non viene sovrascritto. Seguirà una breve panoramica su tutte le risorse in cui potrebbero essere presenti i dati rimossi.
+
+\section{Le freelist}
+Come già detto in precedenza, un database SQLite potrebbe avere zero o più pagine che non sono in uso attivo. 
+
+Queste pagine vengono rese inattive non appena il contenuto memorizzato al loro interno viene rimosso dal database, ad esempio quando viene eseguito il drop su un'intera tabella.
+
+Le pagine inattive potrebbero contenere vecchi record rimossi o intere tabelle rimosse.
+
+Nella sezione 3.4 è stata illustrata la struttura delle freelist, vedremo adesso più nel concreto come reperire le aree di memoria di queste pagine.
+
+Una volta appurato che ci siano pagine inattive e ottenuto il numero della prima pagina attraverso l'header del database, con questa semplice equazione possiamo calcolare l'offset dall'inizio del file all'inizio della pagina.
+
+\medskip
+
+Indirizzo della prima pagina nella freelist:
+
+\medskip
+
+\mbox{(4 byte (BE) all’offset 32 dell’inizio del file – 1) * grandezza in byte di una pagina}
+
+\medskip
+
+Essendo una pagina b-tree, questa presenterà un header come illustrato in precedenza, che ci fornirà le relative informazioni della pagina come il tipo, il numero di record e se ci sono freeblock.
+
+Per ottenere tutti gli indirizzi di tutte le pagine, itereremo questa procedura per tutti gli elementi che vanno a comporre la freelist. Ogni pagina ottenuta potrebbe contenere record rimossi nella sezione contenente i record, nei freeblock e nell'area non allocata. 
+
+\section{I freeblock e l'area non allocata}
+
+A differenza della sezione contenete i record di una pagina, nei freeblock e nelle aree non allocate potrebbero essere presenti anche i frammenti di record. La procedura di recupero potrebbe generare molti falsi record, ma se un database non dovesse presentare pagine inattive, l'unico modo per cercare di recuperare i record rimossi è ricorrere a queste aree.
+
+\medskip
+
+I freeblock sono aree di memoria non utilizzate presenti all'interno delle pagine nella sezione contenete i record. Se il numero di byte di queste aree dovesse risultare maggiore di una certa soglia stabilita da SQLite, significherebbe che la sezione è molto frammentata, SQLite per deframmentare quest'area, sposterebbe il contenuto dei freeblock nell'area non allocata e rimuoverebbe i freeblock.
+
